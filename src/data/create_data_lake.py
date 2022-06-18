@@ -76,7 +76,7 @@ def create_data_lake():
 
 create_data_lake()
 
-    raise NotImplementedError("Implementar esta función")
+    #raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":

@@ -71,6 +71,10 @@ def create_data_lake():
 
     # Create the directory
     os.mkdir(path)
+    
+    return
+
+create_data_lake()
 
     raise NotImplementedError("Implementar esta función")
 

@@ -47,37 +47,21 @@ def create_data_lake():
     # importing os module
     import os
 
-    # mkdir(path): Create a directory named data_lake.
-    os.mkdir("./data_lake")
-    # Parent Directory path
-    parent_dir = "/data_lake"
-
+    os.mkdir("./data_lake/")
+    parent_dir = "data_lake/"
     carpetas = ["landing", "raw", "cleansed", "business"]
     [os.mkdir(os.path.join(parent_dir, c)) for c in carpetas]
-
-    parent_dir = "/data_lake/business"
-
+    parent_dir = "data_lake/business/"
     carpetas = ["reports", "features", "forecasts"]
     [os.mkdir(os.path.join(parent_dir, c)) for c in carpetas]
-
-    # Parent Directory path
-    parent_dir = "/data_lake/business/reports"
-
-    # Directory
+    parent_dir = "data_lake/business/reports/"
     directory = "figures"
-
-    # Path
-    path = os.path.join(parent_dir, directory)
-
-    # Create the directory
-    os.mkdir(path)
-    
+    os.mkdir(os.path.join(parent_dir, directory))
     return
+    # raise NotImplementedError("Implementar esta función")
+
 
 create_data_lake()
-
-    #raise NotImplementedError("Implementar esta función")
-
 
 if __name__ == "__main__":
     import doctest

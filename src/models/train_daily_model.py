@@ -1,3 +1,32 @@
+def load_data():
+
+    import pandas as pd
+
+    in_path = "data_lake/business/features/precios_diarios.csv"
+    data = pd.read_csv(in_path, sep=",")
+
+    return data
+
+
+def data_preparation(data):
+    import pandas as pd
+
+    df = data.copy()
+    df["fecha"] = pd.to_datetime(df["fecha"], format="%Y-%m-%d")
+    df["year"], df["month"], df["day"] = (
+        df["fecha"].dt.year,
+        df["fecha"].dt.month,
+        df["fecha"].dt.day,
+    )
+
+    y = df["precio"]
+    x = df.copy()
+    x.pop("precio")
+    x.pop("fecha")
+    return x, y
+
+
+def make_train_test_split(x, y):
 
     from sklearn.model_selection import train_test_split
 
@@ -31,7 +60,7 @@ def save_model(model_RF):
     import pickle
 
     with open("src/models/precios-diarios.pickle", "wb") as file:
-        pickle.dump(model_RF, file,  pickle.HIGHEST_PROTOCOL)
+        pickle.dump(model_RF, file, pickle.HIGHEST_PROTOCOL)
 
 
 def train_daily_model():
@@ -45,7 +74,7 @@ def train_daily_model():
     model_RF = trein_model(x_train, x_test)
     save_model(model_RF)
 
-    #raise NotImplementedError("Implementar esta función")
+    # raise NotImplementedError("Implementar esta función")
 
 
 if __name__ == "__main__":

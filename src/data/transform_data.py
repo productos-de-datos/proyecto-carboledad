@@ -1,17 +1,15 @@
 def transform_data():
     """Transforme los archivos xls a csv.
-
     Transforme los archivos data_lake/landing/*.xls a data_lake/raw/*.csv. Hay
     un archivo CSV por cada archivo XLS en la capa landing. Cada archivo CSV
     tiene como columnas la fecha en formato YYYY-MM-DD y las horas H00, ...,
     H23.
-
     """
     import pandas as pd
 
-    def transformar_xls_a_csv(año, encabezado, extension):
+    def transformar_xls_a_csv(year, encabezado, extension):
         read_file = pd.read_excel(
-            "data_lake/landing/{}.{}".format(año, extension), header=encabezado
+            "data_lake/landing/{}.{}".format(year, extension), header=encabezado
         )
         read_file = read_file.iloc[:, 0:25]
         read_file.columns = [
@@ -41,29 +39,27 @@ def transform_data():
             "22",
             "23",
         ]
-        read_file.to_csv("data_lake/raw/{}.csv".format(año), index=None)
+        read_file.to_csv("data_lake/raw/{}.csv".format(year), index=None)
 
         return
 
-    for año in range(1995, 2022):
-        if año in range(1995, 2000):
-            transformar_xls_a_csv(año, 3, "xlsx")
-        elif año in range(2000, 2016):
-            transformar_xls_a_csv(año, 2, "xlsx")
-        elif año in range(2016, 2018):
-            transformar_xls_a_csv(año, 2, "xls")
+    for year in range(1995, 2022):
+        if year in range(1995, 2000):
+            transformar_xls_a_csv(year, 3, "xlsx")
+        elif year in range(2000, 2016):
+            transformar_xls_a_csv(year, 2, "xlsx")
+        elif year in range(2016, 2018):
+            transformar_xls_a_csv(year, 2, "xls")
         else:
-            transformar_xls_a_csv(año, 0, "xlsx")
-    return
+            transformar_xls_a_csv(year, 0, "xlsx")
+    # return
 
     # raise NotImplementedError("Implementar esta función")
 
 
-transform_data()
-# raise NotImplementedError("Implementar esta función")
-
-
+# transform_data()
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
+    transform_data()

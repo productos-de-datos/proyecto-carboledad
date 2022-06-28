@@ -90,8 +90,6 @@ class computar_precio_mensual(Task):
 if __name__ == "__main__":
     luigi.run(["computar_precio_mensual", "--local-scheduler"])
 
-    #    raise NotImplementedError("Implementar esta función")
-
 if __name__ == "__main__":
     import doctest
 

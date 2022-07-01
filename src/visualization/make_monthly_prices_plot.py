@@ -1,3 +1,11 @@
+"""
+Módulo de graficación de precios mensuales.
+-------------------------------------------------------------------------------
+Se crea un gráfico de líneas que representa los precios promedios mensuales, usando el archivo data_lake/business/precios-mensuales.csv y la salida se salva en formato PNG en
+data_lake/business/reports/figures/monthly_prices.png.
+"""
+
+
 def make_monthly_prices_plot():
     """Crea un grafico de lines que representa los precios promedios diarios.
     Usando el archivo data_lake/business/precios-diarios.csv, crea un grafico de

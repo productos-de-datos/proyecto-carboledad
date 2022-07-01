@@ -1,3 +1,10 @@
+"""
+Módulo de preparación de datos para pronóstico.
+-------------------------------------------------------------------------------
+Desde la ruta data_lake/business/ se crea una copia del archivo precios-diarios.csv en la ruta data_lake/business/features/ con el nombre precios_diarios.csv incluyendo la fecha y el precio que se desea pronosticar (variable dependiente).
+"""
+
+
 def make_features():
     """Prepara datos para pronóstico.
     Cree el archivo data_lake/business/features/precios-diarios.csv. Este

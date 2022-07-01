@@ -1,11 +1,11 @@
-#
-# Evaluador
-# ---------------------------------------------------------------------------------------
-#
-# test_01: pylint
-# test_02: pytest
-# test_03: doctest
-#
+"""
+#Evaluador
+#---------------------------------------------------------------------------------------
+test_01: pylint
+test_02: pytest
+test_03: doctest
+"""
+
 import os
 import sys
 
@@ -159,4 +159,10 @@ test = {
     "12": test_12,
 }[sys.argv[1]]
 
-test()
+
+if __name__ == "__main__":
+
+    import doctest
+
+    doctest.testmod()
+    test()

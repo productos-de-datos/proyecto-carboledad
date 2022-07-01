@@ -1,3 +1,11 @@
+"""
+Módulo de graficación de precios diarios.
+-------------------------------------------------------------------------------
+Se crea un gráfico de líneas que representa los precios promedios diarios, usando el archivo data_lake/business/precios-diarios.csv y la salida se salva en formato PNG en
+data_lake/business/reports/figures/daily_prices.png.
+"""
+
+
 def make_daily_prices_plot():
     """Crea un grafico de lines que representa los precios promedios diarios.
     Usando el archivo data_lake/business/precios-diarios.csv, crea un grafico de

@@ -23,11 +23,18 @@ def make_features():
         "data_lake/business/features/precios_diarios.csv",
     )
 
-    # raise NotImplementedError("Implementar esta función")
-
 
 if __name__ == "__main__":
     import doctest
 
     doctest.testmod()
-    make_features()
+    try:
+
+        import doctest
+
+        doctest.testmod()
+
+        make_features()
+
+    except:
+        raise NotImplementedError("Implementar función para preparar datos de Pronóstico")
